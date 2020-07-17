@@ -10,7 +10,7 @@ const cors = require('cors');
  app.use(cors());
  app.use(express.static('website'));
 
-const port = 3000;
+const port = process.env.PORT;
 const server = app.listen(port, listening);
 //console.log(server);
 

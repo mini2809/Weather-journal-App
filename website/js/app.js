@@ -42,7 +42,7 @@ const getWeatherData = async (baseUrl , zipCode , apiKey, feel)=>{
 			//calling to post
 			function abc({t,dates,name} , callback)
 			{
-				let pl = postData('http://127.0.0.1:3000/addData',{temp: t, date: dates, feel: feel, name: name})
+				let pl = postData('/addData',{temp: t, date: dates, feel: feel, name: name})
 				console.log("posts Data")
 				callback();
 			}
@@ -52,7 +52,7 @@ const getWeatherData = async (baseUrl , zipCode , apiKey, feel)=>{
 }
 
 const UpdateUI= async ()=>{
-	let getData = await fetch('http://127.0.0.1:3000/getData')
+	let getData = await fetch('/getData')
 	await getData.json().then(res => {
 		document.getElementById('date').innerHTML  = 'Date: '+res.date;
 		document.getElementById('nameOfCity').innerHTML = 'City Name: '+res.name;
